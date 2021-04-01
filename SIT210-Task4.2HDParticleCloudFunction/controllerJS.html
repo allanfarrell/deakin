@@ -1,0 +1,46 @@
+<!Doctype html>
+    <head>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js"></script>
+        <style>
+            body {
+                background-color: lightsteelblue;
+                font-family: sans-serif;
+            }
+        </style>
+        <script>
+        var particle = new Particle();
+        var token;
+
+        myDevice = "e00fce68ebf7634f7b4c100e";
+        funcName = "trafficlights";
+        mytoken = "ce856b16644fb168e31522ede18dacf8c427941a";
+        
+        function trafficFunction(){
+            args = document.querySelector('input[name=lights]:checked').value;
+
+            particle.callFunction({ deviceId: myDevice, name: funcName, argument: args, auth: mytoken }).then(
+            function(data) {
+                console.log('Function called succesfully:', data);
+                document.getElementById('response').innerHTML = "Light changed succesfully." + "<br>" + args + ' light is on.';
+            }, function(err) {
+                console.log('An error occurred:', err);
+                document.getElementById('response').innerHTML = "An error has occured with the system. Unable to change light."
+            });
+        }
+        </script>
+    </head>
+    <body>
+        <h1>Particle - Calling a function from the Web to Device</h1>
+        <h3>Traffic light controls</h3>
+            <input type="radio" id="lights_red" name="lights" value="red" checked>
+            <label for="lights_red">Red</label><br>
+            <input type="radio" id="lights_green" name="lights" value="green">
+            <label for="lights_green">Green</label><br>
+            <input type="radio" id="lights_blue" name="lights" value="blue">
+            <label for="lights_blue">Blue</label><br>
+            <br>
+            <button onclick="trafficFunction();">Submit</button>
+            <br><br>
+            <div id="response"></div>
+    </body>
+</html>
