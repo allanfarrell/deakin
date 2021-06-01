@@ -1,4 +1,5 @@
 from mttkinter import mtTkinter as mtk
+from tkinter import scrolledtext as st
 from tkinter.constants import *
 
 import config
@@ -43,5 +44,5 @@ def load_ui(tab_rfid):
     resultLabel.place(x=0+BORDER,y=0+BORDER)
     
     # Scrolling textbox
-    config.resultScrolledText = mtk.scrolledtext.ScrolledText(tab_rfid, background='black', foreground='white', width=78, height=23)
+    config.resultScrolledText = st.ScrolledText(tab_rfid, background='black', foreground='white', width=78, height=23)
     config.resultScrolledText.place(x=0+BORDER, y=20+BORDER)
