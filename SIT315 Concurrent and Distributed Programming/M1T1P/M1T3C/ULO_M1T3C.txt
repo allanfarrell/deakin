@@ -1,0 +1,8 @@
+ULO1 ()
+Assess the suitability of different programming paradigms for a range of problem types to facilitate effective language selection and program design
+
+ULO2 ()
+Design and implement programs in languages encompassing different programming paradigms to demonstrate effective and efficient computational problem solving
+
+ULO3 ()
+Apply the theoretical aspects of different programming paradigms to analyse and critique the design of programs
